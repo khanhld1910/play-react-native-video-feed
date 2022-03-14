@@ -1,11 +1,11 @@
 ## Prerequisites
 
-- make sure you have set the development environment following [this post](https://reactnative.dev/docs/environment-setup)
-- If your computer is a M1 apple macbook, take a look at [this post](https://medium.com/@alberto.schiabel/how-to-fix-pod-install-error-in-react-native-on-mac-m1-5d79dc52f7e8)
+- make sure you have the development environment following [this post](https://reactnative.dev/docs/environment-setup)
+- If your computer is an M1 apple macbook, take a look at [this post](https://medium.com/@alberto.schiabel/how-to-fix-pod-install-error-in-react-native-on-mac-m1-5d79dc52f7e8)
 
 ## Quick Start
 
-First, install node modules and library
+First, install node modules and libraries
 
 ```bash
 yarn install
