@@ -1,0 +1,7 @@
+const authToken =
+  'Bearer ' +
+  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Ijk5YjJjMGYwMGEyMzQ5ZWZiNzdkMjA4YzdmMzFlYTYyIiwiYXVkIjoiaHR0cHM6Ly80cWJveWswNzQyLmV4ZWN1dGUtYXBpLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tL3Byb2QvIiwiaWF0IjoxNjQ3MTc4NDc4LCJleHAiOjE2NTQ5NTQ0Nzh9.83a3PuIxZVZGWdaoO3q3Rx3lHmcsxT0UFjiJ0jiuaSM';
+
+export default {
+  authToken,
+};
