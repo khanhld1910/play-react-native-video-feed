@@ -19,10 +19,10 @@ import {
   useWindowDimensions,
 } from 'react-native';
 import SnapshotVideo from './components/SnapshotVideo';
+import {videoItems} from './everything';
 
 // we set the height of item is fixed
 
-const items = [...Array(400)].map((_, index) => ({key: index}));
 
 const App = () => {
   const {height: SCREEN_HEIGHT} = useWindowDimensions();
@@ -36,27 +36,35 @@ const App = () => {
     [SCREEN_HEIGHT],
   );
 
-  const renderItem = useCallback(({item}) => {
-    return <SnapshotVideo item={item} key={item.key} />;
-  }, []);
+  const [viewingKey, setViewingKey] = React.useState(0);
 
-  const [viewingItem, setViewingItem] = React.useState();
+  const renderItem = useCallback(
+    ({item}) => {
+      return (
+        <SnapshotVideo
+          item={item}
+          key={item.key}
+          active={viewingKey === item.key}
+        />
+      );
+    },
+    [viewingKey],
+  );
 
   const onViewRef = React.useRef(({viewableItems}) => {
-    const {item, key} = viewableItems[0];
-    setViewingItem(item);
-    // Use viewable items in state or as intended
+    setViewingKey(viewableItems?.[0]?.key);
   });
-  const viewConfigRef = React.useRef({viewAreaCoveragePercentThreshold: 50});
+
+  const viewConfigRef = React.useRef({viewAreaCoveragePercentThreshold: 95});
 
   return (
     <SafeAreaView style={styles.root}>
       <FlatList
-        data={items}
+        data={videoItems}
         renderItem={renderItem}
         getItemLayout={getItemLayout}
-        windowSize={2} // render the active item and the next
         initialNumToRender={2}
+        windowSize={2} // render the active item and the next
         // add
         snapToAlignment="start"
         decelerationRate="fast"
@@ -85,7 +93,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: 'white',
-    // backgroundColor: 'white',
   },
   text: {
     color: 'white',
