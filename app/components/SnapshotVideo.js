@@ -42,6 +42,9 @@ const SnapshotVideo = React.forwardRef((props, ref) => {
     playlist: [playlistItem],
     backgroundAudioEnabled: false,
     repeat: true,
+    // ios only
+    preload: 'auto',
+    // viewOnly: true,
   };
 
   const [isReady, setIsReady] = useState(false);
